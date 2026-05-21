@@ -767,7 +767,7 @@ private fun BiometricAuthButtons(
                     Spacer(Modifier.width(10.dp))
                     Text("Opening biometric prompt…", color = Color.White, fontWeight = FontWeight.Bold, fontSize = 15.sp)
                 }
-            }
+            }//hekllo
         } else {
             // ── Face button ──────────────────────────────────────────────────
             BiometricSingleButton(
