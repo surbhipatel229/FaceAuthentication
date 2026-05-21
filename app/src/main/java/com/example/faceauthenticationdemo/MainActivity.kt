@@ -55,7 +55,7 @@ class MainActivity : AppCompatActivity() {
                 val requireConfirmation   by viewModel.requireConfirmation.collectAsState()
                 val faceLockEnabled       by viewModel.faceLockEnabled.collectAsState()
                 val biometricAvailability by viewModel.biometricAvailability.collectAsState()
-
+///comment check
                 AuthScreen(
                     uiState                  = uiState,
                     requireConfirmation      = requireConfirmation,
