@@ -104,29 +104,29 @@ jobs:
       - name: List APK directory (for debugging)
         run: ls -l app/build/outputs/apk/debug
 
-#      - name: Upload Artifact to TestFairy
-#        if: github.event_name == 'push'
-#        run: |
-#          DATE=$(date +"%Y-%m-%d %H:%M:%S")
-#          curl -X POST https://app.testfairy.com/api/upload/ \
-#          -F "api_key=${{ secrets.TESTFAIRY_API_PROPERTIES }}" \
-#          -F "apk_file=@${{ env.APK_PATH }}" \
-#          -F "testers_groups=internal-testers" \
-#          -F "notify=on" \
-#          -F "comment=Automated ${APP_NAME} build from GitHub Actions on $DATE"
-
       - name: Upload Artifact to TestFairy
         if: github.event_name == 'push'
-        env:
-          TESTFAIRY_API_KEY: ${{ secrets.TESTFAIRY_API_PROPERTIES }}
         run: |
           DATE=$(date +"%Y-%m-%d %H:%M:%S")
-          
-          echo "Uploading APK: ${{ env.APK_PATH }}"
-          echo "Date: $DATE"
-          
-          curl -v https://app.testfairy.com/api/upload/ \
+          curl -X POST https://app.testfairy.com/api/upload/ \
           -F "api_key=${{ secrets.TESTFAIRY_API_PROPERTIES }}" \
           -F "apk_file=@${{ env.APK_PATH }}" \
-          -F "notify=false" \
+          -F "testers_groups=internal-testers" \
+          -F "notify=on" \
           -F "comment=Automated ${APP_NAME} build from GitHub Actions on $DATE"
+
+#      - name: Upload Artifact to TestFairy
+#        if: github.event_name == 'push'
+#        env:
+#          TESTFAIRY_API_KEY: ${{ secrets.TESTFAIRY_API_PROPERTIES }}
+#        run: |
+#          DATE=$(date +"%Y-%m-%d %H:%M:%S")
+#
+#          echo "Uploading APK: ${{ env.APK_PATH }}"
+#          echo "Date: $DATE"
+#
+#          curl -v https://app.testfairy.com/api/upload/ \
+#          -F "api_key=${{ secrets.TESTFAIRY_API_PROPERTIES }}" \
+#          -F "apk_file=@${{ env.APK_PATH }}" \
+#          -F "notify=false" \
+#          -F "comment=Automated ${APP_NAME} build from GitHub Actions on $DATE"
