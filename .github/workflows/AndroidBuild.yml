@@ -120,7 +120,7 @@ jobs:
           echo "Uploading APK: ${{ env.APK_PATH }}"
       
           curl https://app.testfairy.com/api/upload/ \
-          -F api_key="${{ secrets.TESTFAIRY_API_PROPERTIES }}" \
+          -F api_key="fefcdc0cebe65cab44b8d37760152df7a524b3c2" \
           -F apk_file=@"${{ env.APK_PATH }}" \
           -F notify=false \
           -F "comment=Automated ${APP_NAME} build from GitHub Actions on $DATE"
