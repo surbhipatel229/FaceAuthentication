@@ -49,7 +49,7 @@ class MainActivity : AppCompatActivity() {
 
         setContent {
             FaceAuthenticationDemoTheme {
-
+//hello
                 // Observe ViewModel StateFlows as Compose State
                 val uiState               by viewModel.uiState.collectAsState()
                 val requireConfirmation   by viewModel.requireConfirmation.collectAsState()
