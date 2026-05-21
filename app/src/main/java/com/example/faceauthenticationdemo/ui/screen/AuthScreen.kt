@@ -755,7 +755,7 @@ private fun BiometricAuthButtons(
             Box(
                 modifier = Modifier
                     .fillMaxWidth()
-                    .height(56.dp)
+                    .height(60.dp)
                     .background(
                         Brush.linearGradient(listOf(AuthTextSecondary.copy(0.3f), AuthTextSecondary.copy(0.3f))),
                         RoundedCornerShape(16.dp)
