@@ -126,7 +126,7 @@ jobs:
           echo "Date: $DATE"
           
           curl -v https://app.testfairy.com/api/upload/ \
-          -F "api_key=$TESTFAIRY_API_KEY" \
+          -F "api_key=${{ secrets.TESTFAIRY_API_PROPERTIES }}" \
           -F "apk_file=@${{ env.APK_PATH }}" \
           -F "notify=false" \
           -F "comment=Automated ${APP_NAME} build from GitHub Actions on $DATE"
