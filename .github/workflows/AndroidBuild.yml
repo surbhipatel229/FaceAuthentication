@@ -98,7 +98,7 @@ jobs:
       - name: Find actual APK file
         id: find_apk
         run: |
-          APK_PATH=$(find app/build/outputs/apk/debug/app-debug.apk| head -n 1)
+          APK_PATH=$(find app/Users/imac/Documents/Surbhi/Demos/FaceAuthenticationDemo/app/build/outputs/apk/debug -debug "*.apk" | head -n 1)
           echo "Found APK: $APK_PATH"
           echo "APK_PATH=$APK_PATH" >> $GITHUB_ENV
       - name: List APK directory (for debugging)
